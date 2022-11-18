@@ -1,12 +1,12 @@
-package dish.service;
+package order.service;
 
 import domain.model.Order;
 import lombok.AllArgsConstructor;
-import dish.repository.OrderStore;
+import order.repository.OrderRepository;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.function.Function;
+import java.util.function.ToDoubleFunction;
 
 /**
  * Класс описывает сервис по работе с заказами.
@@ -14,16 +14,16 @@ import java.util.function.Function;
  * @version 1.0
  */
 @AllArgsConstructor
-public class OrderService {
-    private final OrderStore store;
+public class SimpleOrderService implements OrderService {
+    private final OrderRepository store;
 
     /**
      * Метод добавляет новый заказ в базу заказов
      * @param order заказ
      * @return заказ
      */
-    public Order add(Order order) {
-        return store.add(order).orElseThrow(IllegalArgumentException::new);
+    public Order save(Order order) {
+        return store.save(order).orElseThrow(IllegalArgumentException::new);
     }
 
     /**
@@ -110,10 +110,10 @@ public class OrderService {
      * @param function функция расчета
      * @return результат расчета
      */
-    private double getTotalByFunction(List<Order> orders, Function<Order, Double> function) {
+    private double getTotalByFunction(List<Order> orders, ToDoubleFunction<Order> function) {
         double sum = 0.0;
         for (Order order : orders) {
-            sum += function.apply(order);
+            sum += function.applyAsDouble(order);
         }
         return sum;
     }

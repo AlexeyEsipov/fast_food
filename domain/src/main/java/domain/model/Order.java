@@ -20,10 +20,10 @@ import java.util.List;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Order {
     @EqualsAndHashCode.Include
-    int id;
-    User user;
-    List<Dish> dishList;
-    double orderPrice;
-    double orderCost;
-    boolean completed;
+    private int id;
+    private User user;
+    private List<Dish> dishList;
+    private double orderPrice;
+    private double orderCost;
+    private boolean completed;
 }

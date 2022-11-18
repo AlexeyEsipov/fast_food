@@ -20,9 +20,13 @@ import java.util.List;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Courier {
     @EqualsAndHashCode.Include
-    int id;
-    String name;
-    boolean isBusy;
-    String position;
-    List<Order> orderList;
+    private int id;
+    private String name;
+    private boolean isBusy;
+    private String position;
+    private List<Order> orderList;
+
+    public Courier(String name) {
+        this.name = name;
+    }
 }

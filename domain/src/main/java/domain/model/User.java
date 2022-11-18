@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class User {
     @EqualsAndHashCode.Include
-    int id;
-    String name;
-    String password;
+    private int id;
+    private String name;
+    private String password;
 }

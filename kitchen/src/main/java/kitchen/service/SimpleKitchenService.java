@@ -1,7 +1,10 @@
-package dish.service;
+package kitchen.service;
 
+import dish.service.SimpleDishService;
 import domain.model.Dish;
 import lombok.AllArgsConstructor;
+import menuofdishes.service.SimpleMenuOfDishesService;
+
 import java.util.Collection;
 
 /**
@@ -10,9 +13,9 @@ import java.util.Collection;
  * @version 1.0
  */
 @AllArgsConstructor
-public class KitchenService {
-    private final DishService dishService;
-    private final MenuOfDishesService menuOfDishesService;
+public class SimpleKitchenService implements KitchenService {
+    private final SimpleDishService dishService;
+    private final SimpleMenuOfDishesService menuOfDishesService;
 
     /**
      * Метод создает блюдо. По наименованию блюда он получает его рецепт в меню,
@@ -20,6 +23,7 @@ public class KitchenService {
      * @param nameDish наименование блюда
      * @return блюдо
      */
+    @Override
     public Dish createDish(String nameDish) {
         Dish dish = menuOfDishesService.findByName(nameDish);
         return dishService.addDish(new Dish(0, dish.getName(), dish.getCost(), dish.getPrice()));
@@ -30,6 +34,7 @@ public class KitchenService {
      * @param name наименование блюда
      * @return коллекция одинаковых блюд
      */
+    @Override
     public Collection<Dish> getDishesByName(String name) {
         return dishService.findAllDishesByName(name);
     }

@@ -17,8 +17,8 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Dish {
     @EqualsAndHashCode.Include
-    int id;
-    String name;
-    double cost;
-    double price;
+    private int id;
+    private String name;
+    private double cost;
+    private double price;
 }

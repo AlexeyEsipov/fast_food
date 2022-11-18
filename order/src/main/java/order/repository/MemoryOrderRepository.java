@@ -1,4 +1,4 @@
-package dish.repository;
+package order.repository;
 
 import domain.model.Order;
 import lombok.AllArgsConstructor;
@@ -11,11 +11,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Predicate;
 
 @AllArgsConstructor
-public class OrderMemoryRepository implements OrderStore {
+public class MemoryOrderRepository implements OrderRepository {
     private final Map<Integer, Order> mapOrder = new ConcurrentHashMap<>();
     private final AtomicInteger ids = new AtomicInteger(1);
     @Override
-    public Optional<Order> add(Order order) {
+    public Optional<Order> save(Order order) {
         order.setId(ids.incrementAndGet());
         mapOrder.put(order.getId(), order);
         return Optional.of(order);

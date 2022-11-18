@@ -1,7 +1,9 @@
-package dish.service;
+package admin.service;
 
-import domain.model.Dish;
+import delivery.service.DeliveryService;
+import domain.model.Courier;
 import lombok.AllArgsConstructor;
+import menuofdishes.service.MenuOfDishesService;
 
 /**
  * Класс описывает админа
@@ -9,9 +11,9 @@ import lombok.AllArgsConstructor;
  * @version 1.0
  */
 @AllArgsConstructor
-public class AdminService {
+public class SimpleAdminService implements AdminService {
     private final MenuOfDishesService menu;
-    private final DishService dishService;
+    private final DeliveryService deliveryService;
 
     /**
      * Метод создает блюдо для меню
@@ -19,16 +21,13 @@ public class AdminService {
      * @param cost себестоимость
      * @param price цена для клиента
      */
+    @Override
     public void createDishForMenu(String name, double cost, double price) {
-        menu.addNewDishToMenu(name, cost, price);
+        menu.save(name, cost, price);
     }
 
-    /**
-     * Метод создает блюдо для создания запаса
-     * @param dish блюдо
-     */
-    public void createDishForStore(Dish dish) {
-        dishService.addDish(dish);
+    @Override
+    public void createCourier(String name) {
+        deliveryService.save(new Courier(name));
     }
-
 }

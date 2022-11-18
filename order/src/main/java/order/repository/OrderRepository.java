@@ -1,12 +1,12 @@
-package dish.repository;
+package order.repository;
 
 import domain.model.Order;
 
 import java.util.Collection;
 import java.util.Optional;
 
-public interface OrderStore {
-    Optional<Order> add(Order order);
+public interface OrderRepository {
+    Optional<Order> save(Order order);
     Collection<Order> findAll();
     Collection<Order> findAllCompleted();
     Collection<Order> findAllNotCompleted();

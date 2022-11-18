@@ -16,10 +16,10 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @version 1.0
  */
 @AllArgsConstructor
-public class DishMemoryRepository implements DishStore {
+public class MemoryDishRepository implements DishRepository {
 
     private final Map<Integer, Dish> mapDish = new ConcurrentHashMap<>();
-    private final AtomicInteger ids = new AtomicInteger(1);
+    private final AtomicInteger ids = new AtomicInteger(0);
 
     /**
      * Добавляет блюдо в хранилище

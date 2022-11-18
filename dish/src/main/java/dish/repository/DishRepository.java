@@ -5,7 +5,7 @@ import domain.model.Dish;
 import java.util.Collection;
 import java.util.Optional;
 
-public interface DishStore {
+public interface DishRepository {
     Dish addDish(Dish dish);
     Collection<Dish> findAll();
     Optional<Dish> findById(int id);
