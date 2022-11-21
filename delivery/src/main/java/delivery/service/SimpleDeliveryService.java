@@ -8,6 +8,7 @@ import java.util.Collection;
 @AllArgsConstructor
 public class SimpleDeliveryService implements DeliveryService {
     private final DeliveryRepository deliveryRepository;
+
     @Override
     public Courier save(Courier courier) {
         return deliveryRepository.save(courier);

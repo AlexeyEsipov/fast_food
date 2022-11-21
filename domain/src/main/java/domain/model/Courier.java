@@ -3,7 +3,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
 import java.util.List;
 
 /**
@@ -25,8 +24,4 @@ public class Courier {
     private boolean isBusy;
     private String position;
     private List<Order> orderList;
-
-    public Courier(String name) {
-        this.name = name;
-    }
 }

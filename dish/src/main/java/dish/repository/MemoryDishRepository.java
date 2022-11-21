@@ -1,6 +1,5 @@
 package dish.repository;
 
-import lombok.AllArgsConstructor;
 import domain.model.Dish;
 import java.util.Collection;
 import java.util.Map;
@@ -15,7 +14,6 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author Есипов Алексей
  * @version 1.0
  */
-@AllArgsConstructor
 public class MemoryDishRepository implements DishRepository {
 
     private final Map<Integer, Dish> mapDish = new ConcurrentHashMap<>();

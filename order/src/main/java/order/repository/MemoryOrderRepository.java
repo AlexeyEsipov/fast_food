@@ -1,8 +1,6 @@
 package order.repository;
 
 import domain.model.Order;
-import lombok.AllArgsConstructor;
-
 import java.util.Collection;
 import java.util.Map;
 import java.util.Optional;
@@ -10,7 +8,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Predicate;
 
-@AllArgsConstructor
 public class MemoryOrderRepository implements OrderRepository {
     private final Map<Integer, Order> mapOrder = new ConcurrentHashMap<>();
     private final AtomicInteger ids = new AtomicInteger(1);

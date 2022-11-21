@@ -3,6 +3,7 @@ package menuofdishes.service;
 import domain.model.Dish;
 import lombok.AllArgsConstructor;
 import menuofdishes.repository.MenuOfDishesRepository;
+import java.util.Collection;
 
 @AllArgsConstructor
 public class SimpleMenuOfDishesService implements MenuOfDishesService {
@@ -25,5 +26,10 @@ public class SimpleMenuOfDishesService implements MenuOfDishesService {
 
     public void deleteById(int id) {
         store.deleteById(id);
+    }
+
+    @Override
+    public Collection<Dish> findAll() {
+        return store.findAll();
     }
 }

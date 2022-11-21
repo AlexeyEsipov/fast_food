@@ -1,12 +1,11 @@
 package menuofdishes.repository;
 
 import domain.model.Dish;
-import lombok.AllArgsConstructor;
+import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-@AllArgsConstructor
 public class MemoryMenuOfDishesRepository implements MenuOfDishesRepository {
     private final Map<Integer, Dish> dishMenu = new ConcurrentHashMap<>();
     private final AtomicInteger ids = new AtomicInteger(1);
@@ -37,5 +36,10 @@ public class MemoryMenuOfDishesRepository implements MenuOfDishesRepository {
 
     public void deleteById(int id) {
         dishMenu.remove(id);
+    }
+
+    @Override
+    public Collection<Dish> findAll() {
+        return dishMenu.values();
     }
 }
