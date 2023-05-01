@@ -27,7 +27,7 @@ import ru.job4j.v1.service.OrderService;
 
 import java.util.List;
 
-/*http://localhost:8081/swagger-ui/index.html */
+/* документация localhost:8081/swagger-ui/index.html */
 @RestController
 @RequestMapping(value = "/v1/customer",
         produces = "application/json")

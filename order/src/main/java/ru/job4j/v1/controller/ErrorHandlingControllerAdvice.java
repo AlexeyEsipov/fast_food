@@ -56,6 +56,5 @@ public class ErrorHandlingControllerAdvice {
             put("message", "Some of fields empty");
             put("details", e.getMessage());
         }}));
-//        LOGGER.error(e.getMessage());
     }
 }
