@@ -1,5 +1,7 @@
 ﻿# Быстро и в точку
 
+![github actions](https://github.com/AlexeyEsipov/job4j_fast_food/actions/workflows/maven.yml/badge.svg)
+
 Мы будет разрабатывать этот проект в блоке микросервис.
 
 Опишем желания заказчика.
@@ -24,4 +26,4 @@
 
 
 
-"# fast_food" 
+ 
